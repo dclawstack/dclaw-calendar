@@ -1,0 +1,6 @@
+apiVersion: v2
+name: dclaw-calendar
+description: DClaw Calendar — AI scheduling & conflict resolution
+type: application
+version: 0.1.0
+appVersion: 0.1.0
