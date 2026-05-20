@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { useSession, signOut } from "next-auth/react"
 import { Calendar, Clock, Users, CalendarDays, Plus, ArrowRight } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -42,6 +43,7 @@ function isThisWeek(iso: string) {
 }
 
 export default function DashboardPage() {
+  const { data: session } = useSession()
   const [calendarCount, setCalendarCount] = useState(0)
   const [events, setEvents] = useState<CalendarEvent[]>([])
   const [attendeeCount, setAttendeeCount] = useState(0)
@@ -149,6 +151,24 @@ export default function DashboardPage() {
                 New Event
               </Button>
             </Link>
+            {session?.user && (
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                  style={{ background: "var(--dk-purple-500)" }}
+                  title={session.user.email ?? ""}
+                >
+                  {(session.user.name ?? session.user.email ?? "?")[0].toUpperCase()}
+                </div>
+                <button
+                  onClick={() => signOut({ callbackUrl: "/login" })}
+                  className="text-sm font-medium hover:opacity-80 transition-opacity"
+                  style={{ color: "var(--dk-fg-2)", background: "none", border: "none", cursor: "pointer" }}
+                >
+                  Sign out
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -166,7 +186,8 @@ export default function DashboardPage() {
               ? "morning"
               : new Date().getHours() < 17
               ? "afternoon"
-              : "evening"}{" "}
+              : "evening"}
+            {session?.user?.name ? `, ${session.user.name.split(" ")[0]}` : ""}{" "}
             👋
           </h1>
           <p className="mt-1" style={{ color: "var(--dk-fg-2)" }}>
