@@ -1,4 +1,5 @@
 import os
+import app.models  # noqa: F401 — must be first to avoid shadowing FastAPI app variable
 import pytest_asyncio
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
@@ -10,7 +11,7 @@ from app.models.base import Base
 
 TEST_DATABASE_URL = os.environ.get(
     "DATABASE_URL",
-    "postgresql+asyncpg://postgres:postgres@localhost:5432/dclaw_app_test",
+    "postgresql+asyncpg://postgres:postgres@localhost:5432/dclaw_calendar_test",
 )
 
 test_engine = create_async_engine(TEST_DATABASE_URL, poolclass=NullPool)

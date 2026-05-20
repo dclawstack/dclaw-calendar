@@ -7,8 +7,8 @@
 
 **DClaw Calendar** is a vertical SaaS application built on the DClaw Stack.
 
-- **Backend Port:** `8023` (FastAPI)
-- **Frontend Port:** `3023` (Next.js)
+- **Backend Port:** `8108` (FastAPI)
+- **Frontend Port:** `3021` (Next.js)
 - **Database:** `dclaw_calendar` (PostgreSQL)
 - **Base API Path:** `/api/v1`
 
