@@ -153,7 +153,7 @@ export default function CalendarsPage() {
       <nav className="border-b bg-white px-6 py-4" style={{ borderColor: "var(--dk-border)" }}>
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-1 text-sm hover:opacity-70 transition-opacity" style={{ color: "var(--dk-fg-2)" }}>
+            <Link href="/dashboard" className="flex items-center gap-1 text-sm hover:opacity-70 transition-opacity" style={{ color: "var(--dk-fg-2)" }}>
               <ArrowLeft className="w-4 h-4" /> Dashboard
             </Link>
             <span style={{ color: "var(--dk-gray-300)" }}>/</span>

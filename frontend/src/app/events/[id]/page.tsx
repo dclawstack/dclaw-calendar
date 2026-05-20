@@ -135,6 +135,10 @@ export default function EventDetailPage() {
               <ArrowLeft className="w-4 h-4" /> Events
             </Link>
             <span style={{ color: "var(--dk-gray-300)" }}>/</span>
+            <Link href="/dashboard" className="flex items-center gap-1 text-sm hover:opacity-70" style={{ color: "var(--dk-fg-2)" }}>
+              Dashboard
+            </Link>
+            <span style={{ color: "var(--dk-gray-300)" }}>/</span>
             <span className="text-sm font-semibold truncate max-w-xs" style={{ color: "var(--dk-ink)" }}>
               {event.title}
             </span>
